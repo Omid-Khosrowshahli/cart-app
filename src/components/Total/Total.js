@@ -11,14 +11,14 @@ const Total = ({list}) => {
     const totals = list.map((item) => {
       totalPrice = totalPrice + Number(item.price);
       totalFinalPrice = totalFinalPrice + item.final;
-      return {totalPrice: totalPrice, totalFinalPrice: totalFinalPrice, totalDiscount: 100 - (totalFinalPrice * 100 / totalPrice)};
+      return {totalPrice: totalPrice, totalFinalPrice: totalFinalPrice, totalDiscount: (100 - (totalFinalPrice * 100 / totalPrice)).toPrecision(3)};
     });
 
     setTotal(totals[totals.length - 1]);
   }, [list]);
   console.log(total);
   return (
-    <div>
+    <div className='total'>
       <div className='totals'>
         <span>Total price</span>
         <span>{total?.totalPrice}</span>

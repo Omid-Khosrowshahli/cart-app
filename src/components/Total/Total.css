@@ -1,0 +1,14 @@
+.total {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: auto;
+  width: 35%;
+  border: 1px solid black;
+}
+
+.totals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
