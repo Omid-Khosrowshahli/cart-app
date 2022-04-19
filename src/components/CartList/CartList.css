@@ -1,0 +1,30 @@
+.carts-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.list-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ant-list {
+  width: 40%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  overflow: auto;
+}
+
+.label {
+  font-size: smaller;
+}
+
+.info {
+  font-size: larger;
+  font-weight: 600;
+}

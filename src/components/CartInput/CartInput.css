@@ -1,0 +1,31 @@
+.ant-form {
+  padding: 30px;
+  width: 40%;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.ant-form-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ant-form-item-label {
+  overflow: visible;
+  text-align: left;
+}
+
+.ant-btn {
+  padding: 4px 25px;
+}
+
+.final-price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
