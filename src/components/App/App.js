@@ -9,16 +9,16 @@ import MyModal from '../MyModal/MyModal';
 function App() {
   const [cartItem, setCartItem] = useState();
   const [list, setList] = useState([]);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [dataToBeEdited, setDataToBeEdited] = useState();
   
   return (
     <>
       <div className="App">
         <CartInput setCartItem={setCartItem} />
-        <CartList cartItem={cartItem} list={list} setList={setList} setIsModalVisible={setIsModalVisible} />
+        <CartList cartItem={cartItem} list={list} setList={setList} setDataToBeEdited={setDataToBeEdited} />
       </div>
       <Total list={list} />
-      <MyModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+      <MyModal dataToBeEdited={dataToBeEdited} setDataToBeEdited={setDataToBeEdited} list={list} setList={setList} />
     </>
   );
 }

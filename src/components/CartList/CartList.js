@@ -3,7 +3,7 @@ import './CartList.css';
 import { List } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
-const CartList = ({cartItem, list, setList, setIsModalVisible}) => {
+const CartList = ({cartItem, list, setList, setDataToBeEdited}) => {
 
   useEffect(() => {
     if(cartItem) {
@@ -14,7 +14,7 @@ const CartList = ({cartItem, list, setList, setIsModalVisible}) => {
 
   const deleteCart = (id) => {
     let newList = list.filter((item) => id !== item.id)
-    setList(newList)
+    setList(newList);
   }
 
   return (
@@ -48,7 +48,7 @@ const CartList = ({cartItem, list, setList, setIsModalVisible}) => {
                <span className='label'>Actions</span>
                <div>
                <span className='info' onClick={() => deleteCart(item.id)}><DeleteOutlined /></span>
-               <span className='info' onClick={() => setIsModalVisible(true)}><EditOutlined /></span>
+               <span className='info' onClick={() => setDataToBeEdited(item)}><EditOutlined /></span>
                </div>
              </div>
            </div>
