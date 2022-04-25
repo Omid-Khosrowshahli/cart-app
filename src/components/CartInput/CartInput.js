@@ -1,17 +1,23 @@
 import './CartInput.css';
 import { Form, Input, Slider, Button, Divider } from 'antd';
 import { useState } from 'react';
+import calcPayment from '../../modules/calcPayment';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const CartInput = ({setCartItem}) => {
   const [price, setPrice] = useState(0);
   const [discount, setDiscount] = useState(0);
+  const [count, setCount] = useState(1);
       
   const onFinish = (values) => {
     if(!values.discount) {
       values.discount = 0;
     }
-    values = {...values, final: Math.floor(price * (1 - discount/100))}
+    if(!values.count) {
+      values.count = 1;
+    }
+    values = {...values, final: Math.floor(calcPayment(price, discount, count)), id: uuidv4()}
     setCartItem(values);
   };
     
@@ -63,6 +69,13 @@ const CartInput = ({setCartItem}) => {
       </Form.Item>
 
       <Form.Item
+        label="Count of product"
+        name="count"
+      >
+        <Input type='number' min={1} onChange={(event) => setCount(event.target.value)} />
+      </Form.Item>
+
+      <Form.Item
         label="Discount"
         name="discount"
       >
@@ -74,7 +87,7 @@ const CartInput = ({setCartItem}) => {
         name="final"
         className='final-price'
       >
-        <Divider>{Math.floor(price * (1 - discount/100))} $</Divider>
+        <Divider>{Math.floor(calcPayment(price, discount, count))} $</Divider>
       </Form.Item>
 
       <Form.Item
