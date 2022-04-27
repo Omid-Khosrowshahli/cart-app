@@ -18,7 +18,9 @@ function App() {
         <CartList cartItem={cartItem} list={list} setList={setList} setDataToBeEdited={setDataToBeEdited} />
       </div>
       <Total list={list} />
-      <MyModal dataToBeEdited={dataToBeEdited} setDataToBeEdited={setDataToBeEdited} list={list} setList={setList} />
+      {dataToBeEdited &&
+        <MyModal dataToBeEdited={dataToBeEdited} setDataToBeEdited={setDataToBeEdited} list={list} setList={setList} />
+      }
     </>
   );
 }

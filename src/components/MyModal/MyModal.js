@@ -7,7 +7,7 @@ const MyModal = ({dataToBeEdited, setDataToBeEdited, list, setList}) => {
   const [price, setPrice] = useState(dataToBeEdited?.price);
   const [discount, setDiscount] = useState(dataToBeEdited?.discount);
   const [count, setCount] = useState(dataToBeEdited?.count);
-
+  
   const onFinish = (values) => {
     if(!values.discount) {
       values.discount = 0;
@@ -34,7 +34,9 @@ const MyModal = ({dataToBeEdited, setDataToBeEdited, list, setList}) => {
   }
   
   return (
-    <Modal destroyOnClose={true} title='Edit cart' footer={null} visible={dataToBeEdited} onCancel={handleCancel}>
+    <Modal destroyOnClose={true} title='Edit cart'
+      footer={null} visible={dataToBeEdited} onCancel={handleCancel}
+    >
       <Form
       name="basic"
       labelCol={{
@@ -104,7 +106,7 @@ const MyModal = ({dataToBeEdited, setDataToBeEdited, list, setList}) => {
           }}
         >
           <Button type="primary" htmlType="submit">
-            Edit
+            Save changes
           </Button>
         </Form.Item>
       </Form>
